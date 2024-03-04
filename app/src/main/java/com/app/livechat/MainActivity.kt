@@ -22,25 +22,31 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    ChatAppNavigation()
                 }
             }
         }
     }
+
+    @Composable
+    fun ChatAppNavigation() {
+
+    }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+sealed class DestinationScreen(var route: String) {
+    object SignUp : DestinationScreen("signup")
+    object Login : DestinationScreen("login")
+    object Profile : DestinationScreen("profile")
+    object ChatList : DestinationScreen("chatList")
+    object SingleChat : DestinationScreen("singleChat/{chatId}") {
+        fun createRoute(id : String) = "singlechat/$id"
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LiveChatTheme {
-        Greeting("Android")
+    }
+
+    object StatusList : DestinationScreen("StatusList")
+    object SingleStatus : DestinationScreen("singleStatus/{userId}") {
+        fun createRoute(userId : String) = "singleStatus/$userId"
+
     }
 }
