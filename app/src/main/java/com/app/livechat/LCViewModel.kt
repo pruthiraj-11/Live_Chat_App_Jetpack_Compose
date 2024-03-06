@@ -1,7 +1,10 @@
 package com.app.livechat
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class LCViewModel : ViewModel() {
+@HiltViewModel
+class LCViewModel @Inject constructor(): ViewModel() {
 
 }

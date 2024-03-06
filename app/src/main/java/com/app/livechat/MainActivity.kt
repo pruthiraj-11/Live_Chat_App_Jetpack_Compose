@@ -10,6 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.composable
+import com.app.livechat.Screens.LoginScreen
+import com.app.livechat.Screens.SignUpScreen
 import com.app.livechat.ui.theme.LiveChatTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,6 +37,16 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun ChatAppNavigation() {
 
+        val navController=rememberNavController()
+        var vm= hiltViewModel<LCViewModel>()
+        NavHost(navController = navController, startDestination = DestinationScreen.SignUp.route ) {
+            composable(DestinationScreen.SignUp.route) {
+                SignUpScreen(navController,vm)
+            }
+            composable(DestinationScreen.Login.route) {
+                LoginScreen()
+            }
+        }
     }
 }
 
