@@ -27,8 +27,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.app.livechat.DestinationScreen
 import com.app.livechat.LCViewModel
 import com.app.livechat.R
+import com.app.livechat.navigateTo
 
 @Composable
 fun SignUpScreen(navController: NavController, vm: LCViewModel) {
@@ -86,8 +88,9 @@ fun SignUpScreen(navController: NavController, vm: LCViewModel) {
             Text(text = "Already a user? or Goto Login->",
                 color = Color.Blue,
                 modifire= Modifier.padding(8.dp).clickable {
-
-                } )
+                    navigateTo(navController,DestinationScreen.Login.route)
+                } 
+            )
         }
     }
 }
