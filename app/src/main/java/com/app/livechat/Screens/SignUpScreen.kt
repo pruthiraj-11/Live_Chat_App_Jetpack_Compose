@@ -81,7 +81,6 @@ fun SignUpScreen(navController: NavController, vm: LCViewModel) {
             }, label = { Text(text = "Password")},
                 modifier = Modifier.padding(8.dp))
             Button(onClick = { /*TODO*/ },
-
                 modifier=Modifier.padding(8.dp)) {
                 Text(text = "SIGN UP")
             }
