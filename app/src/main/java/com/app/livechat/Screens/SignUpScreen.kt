@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,7 +32,6 @@ import com.app.livechat.DestinationScreen
 import com.app.livechat.LCViewModel
 import com.app.livechat.R
 import com.app.livechat.navigateTo
-
 @Composable
 fun SignUpScreen(navController: NavController, vm: LCViewModel) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -80,7 +80,9 @@ fun SignUpScreen(navController: NavController, vm: LCViewModel) {
                 passwordState.value=it
             }, label = { Text(text = "Password")},
                 modifier = Modifier.padding(8.dp))
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = {
+                             vm.signup(nameState.value.text,numberState.value.text,emailState.value.text,passwordState.value.text)
+            },
                 modifier=Modifier.padding(8.dp)) {
                 Text(text = "SIGN UP")
             }
