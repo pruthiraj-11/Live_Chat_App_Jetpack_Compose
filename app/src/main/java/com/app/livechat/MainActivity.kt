@@ -17,7 +17,9 @@ import androidx.navigation.compose.composable
 import com.app.livechat.Screens.LoginScreen
 import com.app.livechat.Screens.SignUpScreen
 import com.app.livechat.ui.theme.LiveChatTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,6 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ChatAppNavigation() {
-
         val navController=rememberNavController()
         var vm= hiltViewModel<LCViewModel>()
         NavHost(navController = navController, startDestination = DestinationScreen.SignUp.route ) {
