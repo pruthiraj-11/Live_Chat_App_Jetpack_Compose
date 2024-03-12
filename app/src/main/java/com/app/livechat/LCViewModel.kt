@@ -23,5 +23,7 @@ class LCViewModel @Inject constructor(
 
     fun handleException(exception: Exception?=null, customMessage: String="") {
         exception?.printStackTrace()
+        val errorMsg=exception?.localizedMessage
+        val message= if (customMessage.isNullOrEmpty()) errorMsg else customMessage
     }
 }
