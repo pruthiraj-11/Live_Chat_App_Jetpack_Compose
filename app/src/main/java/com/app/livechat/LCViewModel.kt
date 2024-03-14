@@ -29,5 +29,8 @@ class LCViewModel @Inject constructor(
         exception?.printStackTrace()
         val errorMsg=exception?.localizedMessage
         val message= if (customMessage.isNullOrEmpty()) errorMsg else customMessage
+        eventMutableState.value= Event(message)
+        inProcess.value=false
+
     }
 }
